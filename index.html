@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>My Profile</title>
+    <style>
+        body, ul {
+            background-color: blueviolet;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: rgba(0, 0, 0, 0.5); 
+            filter: blur(10px);
+        }
+        .navbar {
+            margin-top: 20px;
+            position: fixed;
+            top: 10px;
+            left: 30%;
+            background-color: transparent; 
+            display: flex; 
+            justify-content: center; 
+            background-color: rgba(0, 0, 0, 0.5); 
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        
+        .navbar li {
+            margin-right: 80px;
+        }
+        
+        .navbar li a {
+            font-size: larger;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navbar li a:hover {
+            color: black;
+          background-color: #d32f2f; /* Change this color for a different shade of red */
+          box-shadow: 0 0 10px #d32f2f, 0 0 20px #d32f2f, 0 0 30px #d32f2f; /* Neon glow effect */
+          text-shadow: 0 0 10px #d32f2f, 0 0 20px #d32f2f, 0 0 30px #d32f2f; /* Text shadow for neon glow */
+}
+
+        
+        .img {
+            height: 340px;
+            width: 340px;
+            border-radius: 50%; 
+            object-fit: cover; 
+            object-position: center;
+            margin-top: -200px;
+            margin-right: 900px; 
+        }
+        section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            scroll-behavior: smooth;
+            flex-direction: column;
+        }
+      
+
+        #about {
+            margin-top: 200px;
+            background-color:blueviolet;
+        }
+
+        #contact {
+            background-color:blueviolet;
+        }
+        h1 {
+            font-size: 2.5em;
+            font-weight: bold; 
+            margin-bottom: 10px; 
+            margin-left: 200px;
+
+            font-family: 'Arial', sans-serif; 
+        }
+
+        h2 {
+            font-size: 1.8em; 
+            margin-left: 200px;
+            margin-top: -200px; 
+            font-family: 'Arial', sans-serif; 
+        }
+        .about-content {
+         font-family: Arial, sans-serif;
+         color: black;
+         padding: 20px;
+         border-left: 5px solid black;
+         margin-bottom: 40px;
+         width: 35%; 
+         float: left;
+         font-size: larger;
+          margin-left: -500px;
+
+}
+        h3 {
+            font-size: 1.8em; 
+            margin-left: 200px;
+            margin-top: -200px; 
+            font-family: 'Arial', sans-serif; 
+        }
+
+.skills-content {
+    font-family: Arial, sans-serif;
+    color:black;
+    padding: 20px;
+    border-left: 5px solid black;
+    margin-bottom: 40px;
+    width: 35%; 
+    float: right;
+    font-size: larger;
+    margin-left: -500px;
+
+
+}
+
+.form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h4 {
+            margin-top: 0;
+            font-size: 24px;
+            color: whitesmoke;
+            text-align: center;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
+            color: black;
+            background-color: darkgray;
+            font-family: Arial, sans-serif;
+
+
+        }
+
+        .contact-item li {
+            list-style-type: none;
+            font-size: 16px;
+            margin-left: 5px;
+        }
+        .info-section {
+            margin-bottom: 16px;
+        }
+
+        .info-section label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: darkgray;
+        }
+
+        .info-section input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: darkgrey;
+        }
+
+        .button {
+            background-color: blueviolet;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            font-family: cursive;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+        .contact-item img {
+            height: 20px; 
+            margin-right: 5px; 
+        }
+        .switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .switcher img {
+            width: 50px;
+            height: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <section id="home">
+        <nav class="navbar">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+            </ul>
+            
+        </nav>
+        <img class="img" src="C:\Users\FUJITSU\Desktop\profile\photo_5990323495302709072_y.jpg" alt="Profile">
+        <h2>Computer Engineering Student</h2>
+        <h1>Universita Degli Studi Di Genova</h1>
+        <h3 >IBRAHIM HAMADE</h3>
+
+    </section>
+</header>
+   
+
+<section id="about">
+    <div class="about-content">
+        <h1>About Me</h1>
+        <p>
+           <br> Attualmente sono uno studente privo di esperienza lavorativa e sono alla ricerca di un'opportunità per svolgere uno stage. </br>
+            Le mie competenze sono state acquisite principalmente durante il percorso universitario, dove ho realizzato diversi progetti, inclusi la creazione di pagine web, semplici app mobili e un gioco del Pac-Man. Inoltre, ho acquisito esperienza tramite laboratori che coinvolgevano l'utilizzo di Linux e MySQL. Sono desideroso di migliorare ulteriormente le mie competenze e acquisire esperienza pratica nel campo lavorativo. Sono disponibile a lavorare part-time per ampliare le mie conoscenze e contribuire con dedizione e impegno.
+        </p>
+    </div>
+    <div class="skills-content">
+        <h1>Skills</h1>
+        <p>
+            • Sviluppo siti web <br>
+            • HTML, CSS, JS, PHP e MYSQL <br>
+            • XAMPP / Firebase  <br>
+            • Computer Architecture <br>
+            •XML        <br>
+            • Git        <br>
+            •Ubuntu <br>
+            •Android Studio <br>
+            •C++ & JAVA ( Beginner )<br>
+
+        </p>
+    </div>
+</section>
+
+
+<section id="contact">
+    <div class="form-container">
+        <h4>Contact Me</h4>
+        <div class="contact-info">
+            <ul class="contact-item">
+                <li><img src="https://www.freepnglogos.com/uploads/email-logo-png-27.png" alt="Email Logo"></li>
+                <li>brahim2001hmd@icloud.com</li>
+            </ul>
+            <ul class="contact-item">
+                <li><img src="c:\Users\FUJITSU\Downloads\location.png" alt="Location Logo"></li>
+                <li>Genova, IT </li>
+            </ul>
+            <ul class="contact-item">
+                <li><img src="c:\Users\FUJITSU\Downloads\phone-call.png" alt="Phone Logo"></li>
+                <li>+39 3517267976</li>
+            </ul>
+        </div>
+        <hr>
+        <form action="/action_page.php" target="_blank">
+            <div class="info-section">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="Name" required>
+            </div>
+            <div class="info-section">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="Email" required>
+            </div>
+            <div class="info-section">
+                <label for="message">Message</label>
+                <input type="text" id="message" name="Message" required>
+            </div>
+            <button type="submit" class="button">Send Message</button>
+        </form>
+    </div>
+</section>
+<div class="switcher" onclick="toggleSwitch()">
+    <img id="switchIcon" src="c:\Users\FUJITSU\Downloads\switch.png">
+    <script>
+        let isSwitchOn = false;
+
+        function toggleSwitch() {
+            const switchIcon = document.getElementById('switchIcon');
+
+            if (isSwitchOn) {
+                switchIcon.src = 'c:\Users\FUJITSU\Downloads\switch.png';
+                isSwitchOn = false;
+        
+            } else {
+                switchIcon.src = 'c:\Users\FUJITSU\Downloads\switch (1).png';
+                isSwitchOn = true;
+                
+            }
+        }
+    </script>
+</div>
+</body>
+</html>
